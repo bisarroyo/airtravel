@@ -1,15 +1,20 @@
-<section class='py-xl bg-white' id='form'>
+---
+import { getCountryCode } from '~/lib/countryCode'
+---
+
+<section class='py-xl bg-surface' id='form'>
     <div class='max-w-container-max mx-auto px-gutter'>
         <div class='flex flex-col lg:flex-row gap-xl items-center'>
             <div class='w-full lg:w-1/2'>
                 <div
                     class='inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6'>
-                    Últimos Cupos 2024
+                    Últimos Cupos 2026
                 </div>
                 <h2
                     class='font-headline-lg text-4xl md:text-6xl text-secondary mb-8'>
                     Empieza tu aventura <br /><span class='text-primary'
-                        >profesional</span>
+                        >profesional</span
+                    >
                 </h2>
                 <div class='space-y-6'>
                     <div class='flex items-start gap-4'>
@@ -59,39 +64,52 @@
                     <div
                         class='absolute -right-20 -top-20 w-64 h-64 bg-primary-container opacity-5 rounded-full blur-3xl'>
                     </div>
-                    <form class='space-y-6 relative z-10'>
+                    <form class='space-y-6 relative z-10' id='contact-form'>
                         <div>
                             <label
                                 class='block text-sm font-bold text-secondary mb-2 uppercase tracking-widest'
                                 >Nombre Completo</label
                             >
                             <input
-                                class='w-full px-6 py-4 bg-white border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
+                                class='w-full px-6 py-4 bg-surface border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
                                 placeholder='Ej. Juan Pérez'
                                 type='text'
+                                id='name'
+                                name='name'
+                                value='Bismark'
                             />
                         </div>
-                        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                            <div>
-                                <label
-                                    class='block text-sm font-bold text-secondary mb-2 uppercase tracking-widest'
-                                    >Email</label
-                                >
+
+                        <div>
+                            <label
+                                class='block text-sm font-bold text-secondary mb-2 uppercase tracking-widest'
+                                >Email</label
+                            >
+                            <input
+                                class='w-full px-6 py-4 bg-surface border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
+                                placeholder='juan@ejemplo.com'
+                                type='email'
+                                id='email'
+                                name='email'
+                                value='bismark@example.com'
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class='block text-sm font-bold text-secondary mb-2 uppercase tracking-widest'
+                                >WhatsApp</label
+                            >
+                            <div class='flex gap-2'>
+                                <select
+                                    class='w-[120px] shrink-0 px-3 py-4 bg-surface border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md appearance-none'
+                                    id='phone-code'>
+                                </select>
                                 <input
-                                    class='w-full px-6 py-4 bg-white border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
-                                    placeholder='juan@ejemplo.com'
-                                    type='email'
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    class='block text-sm font-bold text-secondary mb-2 uppercase tracking-widest'
-                                    >WhatsApp</label
-                                >
-                                <input
-                                    class='w-full px-6 py-4 bg-white border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
-                                    placeholder='+54 9...'
+                                    class='w-full px-6 py-4 bg-surface border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all font-body-md'
+                                    placeholder='8888 8888'
                                     type='tel'
+                                    id='phone'
+                                    name='phone'
                                 />
                             </div>
                         </div>
@@ -101,21 +119,147 @@
                                 >¿Cuándo viajas?</label
                             >
                             <select
-                                class='w-full px-6 py-4 bg-white border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all appearance-none font-body-md'>
-                                <option>Lo antes posible</option>
-                                <option>En 3-6 meses</option>
-                                <option>En 6-12 meses</option>
-                                <option>Solo explorando</option>
+                                class='w-full px-6 py-4 bg-surface border-0 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary-container transition-all appearance-none font-body-md'
+                                id='travel_time'
+                                name='travel_time'>
+                                <option value='0-3'>Lo antes posible</option>
+                                <option value='3-6'>En 3-6 meses</option>
+                                <option value='6-12'>En 6-12 meses</option>
+                                <option value='12-18'>En 12-18 meses</option>
+                                <option value='0'>Solo explorando</option>
                             </select>
                         </div>
                         <button
-                            class='w-full bg-primary text-white py-5 rounded-full font-button text-lg shadow-xl hover:shadow-primary/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-3'>
-                            Enviar Solicitud
-                            <span class='material-symbols-outlined'>send</span>
+                            class='w-full bg-tertiary text-white py-5 rounded-full font-button text-lg shadow-xl hover:shadow-tertiary/40 hover:-translate-y-1 transition-all flex items-center justify-center gap-3'
+                            type='submit'>
+                            Enviar
                         </button>
                     </form>
+                    <div class='response' id='response'></div>
+                    <div class='errors' id='error'></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    import { isInputError, actions } from 'astro:actions'
+    import { getCountryCode } from '@/lib/countryCode'
+
+    const form = document.getElementById('contact-form') as HTMLFormElement
+    const submitButton = form.querySelector(
+        "button[type='submit']"
+    ) as HTMLButtonElement
+    const responseBox = document.getElementById('response') as HTMLDivElement
+    const errorBox = document.getElementById('error') as HTMLDivElement
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        submitButton.disabled = true
+        submitButton.textContent = 'Enviando...'
+        try {
+            const code = (
+                document.getElementById('phone-code') as HTMLSelectElement
+            ).value
+            const phoneInput = (
+                document.getElementById('phone') as HTMLInputElement
+            ).value
+            const fullPhone = code + ' ' + phoneInput
+            const { name, email, travel_time } = Object.fromEntries(
+                new FormData(form).entries()
+            )
+            const { data, error } = await actions.sendForm({
+                name: name as string,
+                phone: fullPhone,
+                email: email as string,
+                travel_time: travel_time as
+                    '0-3' | '3-6' | '6-12' | '12-18' | '0'
+            })
+
+            if (data === 'success') {
+                errorBox.innerHTML = ''
+                form.phone.value = ''
+                form.email.value = ''
+                form.travel_time.value = '0-3'
+                responseBox.textContent =
+                    '✅ Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.'
+            }
+            if (error) {
+                console.error('Error al enviar el formulario:', error)
+                responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Intenta de nuevo.`
+            }
+            if (error && isInputError(error)) {
+                responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Revisa Los errores.`
+
+                errorBox.innerHTML = ''
+                Object.entries(error.fields).forEach(([key, value]) => {
+                    const errorItem = document.createElement('p')
+                    errorItem.textContent = Array.isArray(value)
+                        ? value.join(', ')
+                        : (value ?? '')
+                    errorBox.appendChild(errorItem)
+                })
+            }
+        } catch (error: Error | any) {
+            responseBox.textContent =
+                '❌ Ocurrió un error al enviar el formulario. Por favor, intenta de nuevo.'
+        } finally {
+            submitButton.disabled = false
+            submitButton.textContent = 'Enviar'
+        }
+    })
+
+    const countryCodes = [
+        { code: '+54', country: 'AR', label: '🇦🇷 +54' },
+        { code: '+55', country: 'BR', label: '🇧🇷 +55' },
+        { code: '+1', country: 'US', label: '🇺🇸 +1' },
+        { code: '+1', country: 'CA', label: '🇨🇦 +1' },
+        { code: '+44', country: 'GB', label: '🇬🇧 +44' },
+        { code: '+34', country: 'ES', label: '🇪🇸 +34' },
+        { code: '+52', country: 'MX', label: '🇲🇽 +52' },
+        { code: '+57', country: 'CO', label: '🇨🇴 +57' },
+        { code: '+56', country: 'CL', label: '🇨🇱 +56' },
+        { code: '+51', country: 'PE', label: '🇵🇪 +51' },
+        { code: '+593', country: 'EC', label: '🇪🇨 +593' },
+        { code: '+58', country: 'VE', label: '🇻🇪 +58' },
+        { code: '+598', country: 'UY', label: '🇺🇾 +598' },
+        { code: '+595', country: 'PY', label: '🇵🇾 +595' },
+        { code: '+591', country: 'BO', label: '🇧🇴 +591' },
+        { code: '+502', country: 'GT', label: '🇬🇹 +502' },
+        { code: '+503', country: 'SV', label: '🇸🇻 +503' },
+        { code: '+504', country: 'HN', label: '🇭🇳 +504' },
+        { code: '+505', country: 'NI', label: '🇳🇮 +505' },
+        { code: '+506', country: 'CR', label: '🇨🇷 +506' },
+        { code: '+507', country: 'PA', label: '🇵🇦 +507' },
+        { code: '+53', country: 'CU', label: '🇨🇺 +53' },
+        { code: '+1', country: 'DO', label: '🇩🇴 +1' }
+    ]
+
+    const codeSelect = document.getElementById(
+        'phone-code'
+    ) as HTMLSelectElement
+
+    const seen = new Set<string>()
+    for (const cc of countryCodes) {
+        if (seen.has(cc.country)) continue
+        seen.add(cc.country)
+        const opt = document.createElement('option')
+        opt.value = cc.code
+        opt.textContent = cc.label
+        codeSelect.appendChild(opt)
+    }
+
+    ;(async () => {
+        try {
+            const detected = await getCountryCode()
+            if (detected) {
+                const match = countryCodes.find((c) => c.country === detected)
+                if (match) {
+                    codeSelect.value = match.code
+                }
+            }
+        } catch {
+            // fallback: leave default selected
+        }
+    })()
+</script>
