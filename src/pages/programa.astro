@@ -1,0 +1,447 @@
+---
+import Nav from '../components/Nav.astro'
+import Layout from '../layouts/Layout.astro'
+import programImage from '../assets/images/program.webp'
+---
+
+<Layout>
+    <Nav />
+    <section
+        class='relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-secondary'>
+        <div class='absolute inset-0 z-0'>
+            <img
+                src={programImage.src}
+                alt='Dublin'
+                class='w-full h-full object-cover'
+            />
+            <div class='absolute inset-0 bg-secondary/70'></div>
+            <div class='absolute inset-0 hero-gradient'></div>
+        </div>
+        <div class='blob w-[600px] h-[600px] bg-tertiary/20 -right-64 -top-64'>
+        </div>
+        <div
+            class='blob w-[400px] h-[400px] bg-primary-container/20 -left-32 -bottom-32'>
+        </div>
+        <div
+            class='relative z-10 max-w-container-max mx-auto px-gutter py-20 text-center'>
+            <div
+                class='inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-8'>
+                <span class='w-2 h-2 bg-tertiary rounded-full animate-pulse'
+                ></span>
+                Programa Oficial • Visa de 8 Meses
+            </div>
+            <h1
+                class='font-display-lg text-5xl md:text-7xl text-white mb-6 leading-tight'>
+                Experiencia Dublín: <br /><span class='text-tertiary'
+                    >Work & Study</span
+                >
+            </h1>
+            <p
+                class='font-body-lg text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12'>
+                25 semanas de estudio + 8 semanas de vacaciones <br />· Trabajo
+                legal · Visa renovable
+            </p>
+            <a
+                href='#detalles'
+                class='bg-tertiary text-white px-10 py-5 rounded-full font-button text-lg shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3'>
+                Ver detalles del programa
+                <span class='material-symbols-outlined font-bold'
+                    >expand_more</span
+                >
+            </a>
+        </div>
+    </section>
+
+    <section id='detalles' class='py-xl bg-surface relative overflow-hidden'>
+        <div
+            class='blob w-[500px] h-[500px] bg-primary-container/10 -left-64 top-0'>
+        </div>
+        <div class='max-w-container-max mx-auto px-gutter'>
+            <div class='text-center mb-16'>
+                <h2
+                    class='font-headline-lg text-4xl md:text-5xl text-secondary mb-4'>
+                    El Programa <span class='text-tertiary'>Completo</span>
+                </h2>
+                <div class='w-24 h-1.5 bg-tertiary mx-auto rounded-full mb-6'>
+                </div>
+                <p
+                    class='font-body-lg text-on-surface-variant pt-1 max-w-2xl mx-auto'>
+                    Todo lo que necesitas saber sobre nuestro programa Work &
+                    Study en Dublín
+                </p>
+            </div>
+
+            <div class='grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-16'>
+                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10'>
+                    <div
+                        class='w-14 h-14 bg-tertiary rounded-2xl flex items-center justify-center mb-6 shadow-lg'>
+                        <span class='material-symbols-outlined text-white'
+                            >school</span
+                        >
+                    </div>
+                    <h3 class='text-2xl font-headline-md text-secondary mb-4'>
+                        Estudios
+                    </h3>
+                    <ul class='space-y-4'>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                ><strong class='text-secondary'
+                                    >25 semanas</strong
+                                > de inglés académico en escuelas EQUALS Certified</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                >Clases de lunes a viernes con horarios
+                                flexibles (mañana/tarde)</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                >Todos los niveles: desde principiante (A1)
+                                hasta avanzado (C1)</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                >Certificación oficial al completar el programa</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10'>
+                    <div
+                        class='w-14 h-14 bg-tertiary rounded-2xl flex items-center justify-center mb-6 shadow-lg'>
+                        <span class='material-symbols-outlined text-white'
+                            >work</span
+                        >
+                    </div>
+                    <h3 class='text-2xl font-headline-md text-secondary mb-4'>
+                        Trabajo Legal
+                    </h3>
+                    <ul class='space-y-4'>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                ><strong class='text-secondary'
+                                    >20 horas semanales</strong
+                                > durante el período de estudio</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                ><strong class='text-secondary'
+                                    >40 horas semanales</strong
+                                > durante 5 meses al año</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1'
+                                >Salario mínimo irlandés: <strong
+                                    class='text-secondary'>€14.15/hora</strong
+                                > (2026)</span
+                            >
+                        </li>
+                        <li class='flex items-start gap-3'>
+                            <span
+                                class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                >check_circle</span
+                            >
+                            <span
+                                class='font-body-md text-on-surface-variant pt-1 pt-1'
+                                >Bolsa de empleo exclusiva con más de 120
+                                empleadores</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10 mb-16'>
+                <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
+                    <div>
+                        <div
+                            class='w-14 h-14 bg-tertiary rounded-2xl flex items-center justify-center mb-6 shadow-lg'>
+                            <span class='material-symbols-outlined text-white'
+                                >badge</span
+                            >
+                        </div>
+                        <h3
+                            class='text-2xl font-headline-md text-secondary mb-4'>
+                            Requisitos de Visa
+                        </h3>
+                        <ul class='space-y-4'>
+                            <li class='flex items-start gap-3'>
+                                <span
+                                    class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                    >check_circle</span
+                                >
+                                <span
+                                    class='font-body-md text-on-surface-variant pt-1'
+                                    >Pasaporte vigente (mínimo 12 meses de
+                                    validez)</span
+                                >
+                            </li>
+                            <li class='flex items-start gap-3'>
+                                <span
+                                    class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                    >check_circle</span
+                                >
+                                <span
+                                    class='font-body-md text-on-surface-variant pt-1'
+                                    >Edad: <strong class='text-secondary'
+                                        >18 a 35 años</strong
+                                    ></span
+                                >
+                            </li>
+                            <li class='flex items-start gap-3'>
+                                <span
+                                    class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                    >check_circle</span
+                                >
+                                <span
+                                    class='font-body-md text-on-surface-variant pt-1'
+                                    >Carta de aceptación de la escuela
+                                    (gestionada por nosotros)</span
+                                >
+                            </li>
+                            <li class='flex items-start gap-3'>
+                                <span
+                                    class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                    >check_circle</span
+                                >
+                                <span
+                                    class='font-body-md text-on-surface-variant pt-1'
+                                    >Seguro médico privado + visa fee</span
+                                >
+                            </li>
+                            <li class='flex items-start gap-3'>
+                                <span
+                                    class='material-symbols-outlined text-tertiary text-lg mt-0.5'
+                                    >check_circle</span
+                                >
+                                <span
+                                    class='font-body-md text-on-surface-variant pt-1'
+                                    ><strong class='text-secondary'
+                                        >Visa renovable</strong
+                                    > por hasta 2 años consecutivos</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class='bg-surface rounded-[2rem] p-8 border border-outline/10'>
+                        <div class='flex items-center gap-3 mb-6'>
+                            <div class='w-3 h-3 bg-tertiary rounded-full'></div>
+                            <span
+                                class='text-sm font-bold uppercase tracking-widest text-tertiary'
+                                >Proceso Paso a Paso</span
+                            >
+                        </div>
+                        <ol class='space-y-6'>
+                            <li class='flex gap-4'>
+                                <div
+                                    class='w-10 h-10 bg-tertiary text-white rounded-full flex items-center justify-center font-bold shrink-0 text-lg'>
+                                    1
+                                </div>
+                                <div>
+                                    <h4
+                                        class='font-headline-md text-secondary text-sm mb-1'>
+                                        Asesoría Inicial
+                                    </h4>
+                                    <p
+                                        class='font-body-md text-sm text-on-surface-variant pt-1'>
+                                        Evaluamos tu perfil y definimos el plan
+                                        ideal
+                                    </p>
+                                </div>
+                            </li>
+                            <li class='flex gap-4'>
+                                <div
+                                    class='w-10 h-10 bg-tertiary text-white rounded-full flex items-center justify-center font-bold shrink-0 text-lg'>
+                                    2
+                                </div>
+                                <div>
+                                    <h4
+                                        class='font-headline-md text-secondary text-sm mb-1'>
+                                        Inscripción y Matrícula
+                                    </h4>
+                                    <p
+                                        class='font-body-md text-sm text-on-surface-variant pt-1'>
+                                        Te matriculamos en la escuela y
+                                        gestionamos la carta de aceptación
+                                    </p>
+                                </div>
+                            </li>
+                            <li class='flex gap-4'>
+                                <div
+                                    class='w-10 h-10 bg-tertiary text-white rounded-full flex items-center justify-center font-bold shrink-0 text-lg'>
+                                    3
+                                </div>
+                                <div>
+                                    <h4
+                                        class='font-headline-md text-secondary text-sm mb-1'>
+                                        Trámite de Visa
+                                    </h4>
+                                    <p
+                                        class='font-body-md text-sm text-on-surface-variant pt-1'>
+                                        Te guiamos en cada paso de la solicitud
+                                        de visa
+                                    </p>
+                                </div>
+                            </li>
+                            <li class='flex gap-4'>
+                                <div
+                                    class='w-10 h-10 bg-tertiary text-white rounded-full flex items-center justify-center font-bold shrink-0 text-lg'>
+                                    4
+                                </div>
+                                <div>
+                                    <h4
+                                        class='font-headline-md text-secondary text-sm mb-1'>
+                                        Llegada a Dublín
+                                    </h4>
+                                    <p
+                                        class='font-body-md text-sm text-on-surface-variant pt-1'>
+                                        Te recibimos en el aeropuerto y te
+                                        ayudamos con el alojamiento
+                                    </p>
+                                </div>
+                            </li>
+                            <li class='flex gap-4'>
+                                <div
+                                    class='w-10 h-10 bg-tertiary text-white rounded-full flex items-center justify-center font-bold shrink-0 text-lg'>
+                                    5
+                                </div>
+                                <div>
+                                    <h4
+                                        class='font-headline-md text-secondary text-sm mb-1'>
+                                        IRP y Employment
+                                    </h4>
+                                    <p
+                                        class='font-body-md text-sm text-on-surface-variant pt-1'>
+                                        Tramitamos tu IRP y te conectamos con
+                                        oportunidades laborales
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class='text-center'>
+                <a
+                    href='#form'
+                    class='bg-tertiary text-white px-10 py-5 rounded-full font-button text-lg shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3'>
+                    Agenda tu asesoría gratuita
+                    <span class='material-symbols-outlined font-bold'
+                        >arrow_forward</span
+                    >
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class='py-xl bg-secondary relative overflow-hidden'>
+        <div class='blob w-[400px] h-[400px] bg-tertiary/10 -right-32 top-0'>
+        </div>
+        <div class='max-w-container-max mx-auto px-gutter'>
+            <div class='text-center mb-16'>
+                <h2
+                    class='font-headline-lg text-4xl md:text-5xl text-white mb-4'>
+                    ¿Por qué <span class='text-tertiary'>Irlanda?</span>
+                </h2>
+                <div class='w-24 h-1.5 bg-tertiary mx-auto rounded-full mb-6'>
+                </div>
+            </div>
+            <div class='grid grid-cols-1 md:grid-cols-3 gap-gutter'>
+                <div
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    <div
+                        class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <span
+                            class='material-symbols-outlined text-tertiary text-3xl'
+                            >hub</span
+                        >
+                    </div>
+                    <h3 class='text-xl font-headline-md text-white mb-3'>
+                        Hub Tecnológico
+                    </h3>
+                    <p class='font-body-md text-white/70 text-sm'>
+                        Sede europea de Google, Facebook, LinkedIn y Twitter.
+                        Oportunidades laborales únicas en el sector tech.
+                    </p>
+                </div>
+                <div
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    <div
+                        class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <span
+                            class='material-symbols-outlined text-tertiary text-3xl'
+                            >language</span
+                        >
+                    </div>
+                    <h3 class='text-xl font-headline-md text-white mb-3'>
+                        Inglés de Calidad
+                    </h3>
+                    <p class='font-body-md text-white/70 text-sm'>
+                        El inglés irlandés es claro y neutral. Escuelas ACELS
+                        Certified con los más altos estándares.
+                    </p>
+                </div>
+                <div
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    <div
+                        class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
+                        <span
+                            class='material-symbols-outlined text-tertiary text-3xl'
+                            >diversity_3</span
+                        >
+                    </div>
+                    <h3 class='text-xl font-headline-md text-white mb-3'>
+                        Comunidad Latina
+                    </h3>
+                    <p class='font-body-md text-white/70 text-sm'>
+                        Comunidad latina creciente en Dublín. Red de apoyo y
+                        networking con más de 5,000 alumnos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
