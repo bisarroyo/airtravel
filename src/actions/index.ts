@@ -36,19 +36,22 @@ export const server = {
             const referralCode = input.referralCode
 
             if (email) {
-                const leads = await fetch('http://localhost:3000/api/leads', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email,
-                        name,
-                        phone,
-                        travel_time,
-                        referralCode
-                    })
-                })
+                const leads = await fetch(
+                    'https://crm.airtravel.es/api/leads',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email,
+                            name,
+                            phone,
+                            travel_time,
+                            referralCode
+                        })
+                    }
+                )
                 if (!leads.ok) {
                     console.error(leads)
                     throw new Error(
