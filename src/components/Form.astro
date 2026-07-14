@@ -151,6 +151,8 @@ import { getCountryCode } from '~/lib/countryCode'
     const responseBox = document.getElementById('response') as HTMLDivElement
     const errorBox = document.getElementById('error') as HTMLDivElement
 
+    console.log(new URLSearchParams(window.location.search).get('ref') || 'web')
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
         submitButton.disabled = true
@@ -171,7 +173,10 @@ import { getCountryCode } from '~/lib/countryCode'
                 phone: fullPhone,
                 email: email as string,
                 travel_time: travel_time as
-                    '0-3' | '3-6' | '6-12' | '12-18' | '0'
+                    '0-3' | '3-6' | '6-12' | '12-18' | '0',
+                referralCode:
+                    new URLSearchParams(window.location.search).get('ref') ||
+                    'web'
             })
 
             if (data === 'success') {

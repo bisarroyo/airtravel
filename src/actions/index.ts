@@ -1,7 +1,13 @@
-import { turso } from '@/lib/turso'
-
 import { defineAction } from 'astro:actions'
 import { z } from 'astro/zod'
+
+type FormData = {
+    name: string
+    phone: string
+    email: string
+    travel_time: '0-3' | '3-6' | '6-12' | '12-18' | '0'
+    referralCode: string
+}
 
 export const server = {
     sendForm: defineAction({
@@ -17,40 +23,41 @@ export const server = {
             email: z.email('Debes ingresar un correo electrónico válido'),
             travel_time: z.enum(['0-3', '3-6', '6-12', '12-18', '0'], {
                 message: 'Debes seleccionar un tiempo de viaje'
-            })
+            }),
+            referralCode: z
+                .string()
+                .max(100, 'El código de referido es muy largo')
         }),
-        handler: async (input) => {
+        handler: async (input: FormData) => {
             const name = input.name.trim()
             const phone = input.phone.trim()
             const email = input.email.trim()
             const travel_time = input.travel_time
+            const referralCode = input.referralCode
 
             if (email) {
-                const data = await turso.execute({
-                    sql: `SELECT email FROM customers WHERE email = ?`,
-                    args: [email]
-                })
-                if (data.rows.length > 0) {
-                    const data = await turso.execute({
-                        sql: `UPDATE customers SET name = ?, phone = ?, travel_time = ?, recontact = ? WHERE email = ?`,
-                        args: [name, phone, travel_time, 1, email]
+                const leads = await fetch('http://localhost:3000/api/leads', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        name,
+                        phone,
+                        travel_time,
+                        referralCode
                     })
-                    return 'success'
+                })
+                if (!leads.ok) {
+                    console.error(leads)
+                    throw new Error(
+                        'Error al enviar los datos a la API de leads'
+                    )
                 }
             }
-            const data = await turso.execute({
-                sql: `INSERT INTO customers (name, phone, email, travel_time) VALUES (?, ?, ?, ?)`,
-                args: [name, phone, email, travel_time]
-            })
+
             return 'success'
-        }
-    }),
-    retriveList: defineAction({
-        handler: async () => {
-            const data = await turso.execute({
-                sql: `SELECT * FROM customers`
-            })
-            return JSON.stringify(data)
         }
     })
 }
