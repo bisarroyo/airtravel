@@ -1,5 +1,6 @@
 import { defineAction } from 'astro:actions'
 import { z } from 'astro/zod'
+import { getGeoInfo } from '../lib/countryCode'
 
 type FormData = {
     name: string
@@ -61,6 +62,14 @@ export const server = {
             }
 
             return 'success'
+        }
+    }),
+
+    getCountry: defineAction({
+        input: z.object({}).optional(),
+        handler: async (_input, context) => {
+            const geoInfo = await getGeoInfo(context.request)
+            return { countryCode: geoInfo.countryCode }
         }
     })
 }
