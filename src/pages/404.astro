@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+    <section class='min-h-screen flex items-center justify-center bg-surface relative overflow-hidden'>
+        <div class='absolute -right-40 -top-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl'></div>
+        <div class='absolute -left-40 -bottom-40 w-96 h-96 bg-tertiary/5 rounded-full blur-3xl'></div>
+
+        <div class='max-w-container-max mx-auto px-gutter text-center relative z-10 py-20'>
+            <div class='mb-8'>
+                <span class='material-symbols-outlined text-8xl text-primary/20'>flight_takeoff</span>
+            </div>
+
+            <h1 class='font-headline-lg text-6xl md:text-8xl text-secondary mb-4'>
+                404
+            </h1>
+
+            <h2 class='font-headline-md text-2xl md:text-3xl text-secondary mb-6'>
+                ¡Ups! Tu vuelo se desvió
+            </h2>
+
+            <p class='font-body-lg text-on-surface-variant max-w-xl mx-auto mb-10'>
+                La página que buscas no existe o ha sido movida. No te preocupes, podemos llevarte de vuelta a casa.
+            </p>
+
+            <a
+                href='/'
+                class='inline-flex items-center gap-3 bg-tertiary text-white px-8 py-4 rounded-full font-button text-lg shadow-xl hover:shadow-tertiary/40 hover:-translate-y-1 transition-all'>
+                <span class='material-symbols-outlined'>home</span>
+                <span>Volver al inicio</span>
+            </a>
+        </div>
+    </section>
+</Layout>
