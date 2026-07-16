@@ -66,7 +66,7 @@ export const server = {
     }),
 
     getCountry: defineAction({
-        input: z.object({}).optional(),
+        // input: z.object({}).optional(),
         handler: async (_input, context) => {
             const geoInfo = await getGeoInfo(context.request)
             return { countryCode: geoInfo.countryCode }

@@ -310,7 +310,7 @@
         feedbackError.classList.add('hidden')
         feedbackNetworkError.classList.add('hidden')
         errorDetails.innerHTML = ''
-        form.name.focus()
+        ;(form.elements.namedItem('name') as HTMLInputElement)?.focus()
     }
 
     resetFormBtn.addEventListener('click', resetForm)
@@ -619,7 +619,9 @@
         try {
             const { data } = await actions.getCountry()
             if (data?.countryCode) {
-                const match = countryCodes.find((c) => c.country === data.countryCode)
+                const match = countryCodes.find(
+                    (c) => c.country === data.countryCode
+                )
                 if (match) {
                     codeSelect.value = match.code
                 }
