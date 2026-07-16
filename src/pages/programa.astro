@@ -1,11 +1,9 @@
 ---
-import Nav from '../components/Nav.astro'
 import Layout from '../layouts/Layout.astro'
 import programImage from '../assets/images/program.webp'
 ---
 
 <Layout>
-    <Nav />
     <section
         class='relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-secondary'>
         <div class='absolute inset-0 z-0'>
@@ -25,25 +23,29 @@ import programImage from '../assets/images/program.webp'
         <div
             class='relative z-10 max-w-container-max mx-auto px-gutter py-20 text-center'>
             <div
-                class='inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-8'>
+                class='inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-widest mb-8 animate-on-scroll animate-fadeInUp'
+                style='animation-delay: 0.3s'>
                 <span class='w-2 h-2 bg-tertiary rounded-full animate-pulse'
                 ></span>
                 Programa Oficial • Visa de 8 Meses
             </div>
             <h1
-                class='font-display-lg text-5xl md:text-7xl text-white mb-6 leading-tight'>
+                class='font-display-lg text-5xl md:text-7xl text-white mb-6 leading-tight animate-on-scroll animate-fadeInUp'
+                style='animation-delay: 0.5s'>
                 Experiencia Dublín: <br /><span class='text-tertiary'
                     >Work & Study</span
                 >
             </h1>
             <p
-                class='font-body-lg text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12'>
+                class='font-body-lg text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 animate-on-scroll animate-fadeInUp'
+                style='animation-delay: 0.7s'>
                 25 semanas de estudio + 8 semanas de vacaciones <br />· Trabajo
                 legal · Visa renovable
             </p>
             <a
                 href='#detalles'
-                class='bg-tertiary text-white px-10 py-5 rounded-full font-button text-lg shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3'>
+                class='bg-tertiary text-white px-10 py-5 rounded-full font-button text-lg shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3 animate-on-scroll animate-fadeInUp'
+                style='animation-delay: 0.9s'>
                 Ver detalles del programa
                 <span class='material-symbols-outlined font-bold'
                     >expand_more</span
@@ -57,7 +59,7 @@ import programImage from '../assets/images/program.webp'
             class='blob w-[500px] h-[500px] bg-primary-container/10 -left-64 top-0'>
         </div>
         <div class='max-w-container-max mx-auto px-gutter'>
-            <div class='text-center mb-16'>
+            <div class='text-center mb-16 animate-on-scroll animate-fadeInUp' style='animation-delay: 0.2s'>
                 <h2
                     class='font-headline-lg text-4xl md:text-5xl text-secondary mb-4'>
                     El Programa <span class='text-tertiary'>Completo</span>
@@ -72,7 +74,7 @@ import programImage from '../assets/images/program.webp'
             </div>
 
             <div class='grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-16'>
-                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10'>
+                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10 animate-on-scroll animate-fadeInLeft' style='animation-delay: 0.3s'>
                     <div
                         class='w-14 h-14 bg-tertiary rounded-2xl flex items-center justify-center mb-6 shadow-lg'>
                         <span class='material-symbols-outlined text-white'
@@ -130,7 +132,7 @@ import programImage from '../assets/images/program.webp'
                     </ul>
                 </div>
 
-                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10'>
+                <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10 animate-on-scroll animate-fadeInRight' style='animation-delay: 0.5s'>
                     <div
                         class='w-14 h-14 bg-tertiary rounded-2xl flex items-center justify-center mb-6 shadow-lg'>
                         <span class='material-symbols-outlined text-white'
@@ -192,7 +194,7 @@ import programImage from '../assets/images/program.webp'
                 </div>
             </div>
 
-            <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10 mb-16'>
+            <div class='bg-white rounded-[2.5rem] shadow-xl p-8 md:p-10 mb-16 animate-on-scroll animate-scaleIn' style='animation-delay: 0.3s'>
                 <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
                     <div>
                         <div
@@ -225,7 +227,7 @@ import programImage from '../assets/images/program.webp'
                                 <span
                                     class='font-body-md text-on-surface-variant pt-1'
                                     >Edad: <strong class='text-secondary'
-                                        >18 a 35 años</strong
+                                        >+18 años sin límite de edad</strong
                                     ></span
                                 >
                             </li>
@@ -381,7 +383,7 @@ import programImage from '../assets/images/program.webp'
         <div class='blob w-[400px] h-[400px] bg-tertiary/10 -right-32 top-0'>
         </div>
         <div class='max-w-container-max mx-auto px-gutter'>
-            <div class='text-center mb-16'>
+            <div class='text-center mb-16 animate-on-scroll animate-fadeInUp' style='animation-delay: 0.2s'>
                 <h2
                     class='font-headline-lg text-4xl md:text-5xl text-white mb-4'>
                     ¿Por qué <span class='text-tertiary'>Irlanda?</span>
@@ -391,7 +393,7 @@ import programImage from '../assets/images/program.webp'
             </div>
             <div class='grid grid-cols-1 md:grid-cols-3 gap-gutter'>
                 <div
-                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10 animate-on-scroll animate-scaleIn' style='animation-delay: 0.3s'>
                     <div
                         class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
                         <span
@@ -408,7 +410,7 @@ import programImage from '../assets/images/program.webp'
                     </p>
                 </div>
                 <div
-                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10 animate-on-scroll animate-scaleIn' style='animation-delay: 0.5s'>
                     <div
                         class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
                         <span
@@ -425,7 +427,7 @@ import programImage from '../assets/images/program.webp'
                     </p>
                 </div>
                 <div
-                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10'>
+                    class='bg-white/10 backdrop-blur-md rounded-[2rem] p-8 text-center border border-white/10 animate-on-scroll animate-scaleIn' style='animation-delay: 0.7s'>
                     <div
                         class='w-16 h-16 bg-tertiary/20 rounded-2xl flex items-center justify-center mx-auto mb-6'>
                         <span

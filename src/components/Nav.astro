@@ -2,30 +2,31 @@
     class='fixed top-0 w-full z-[100] transition-all duration-300 px-gutter py-4'
     id='main-nav'>
     <div
-        class='max-w-container-max mx-auto flex justify-between items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-8 py-3 shadow-lg'>
-        <a href='/'>
+        class='max-w-container-max mx-auto flex justify-between items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-8 py-3 shadow-lg transition-all duration-300'>
+        <a href='/' class='flex items-center gap-2'>
             <div
-                class='font-headline-md text-2xl font-black tracking-[6px] text-white'>
+                class='font-headline-md text-2xl font-black tracking-[6px] text-white transition-colors duration-300'
+                id='nav-brand'>
                 AIR
             </div>
         </a>
         <div class='hidden md:flex items-center gap-8'>
             <a
-                class='text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
-                href='#'>Programas</a
+                class='nav-link text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
+                href='/'>Programas</a
             >
             <a
-                class='text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
+                class='nav-link text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
                 href='/programa'>Cómo Funciona</a
             >
             <a
-                class='text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
-                href='#'>Testimonios</a
+                class='nav-link text-white font-medium hover:text-primary-container transition-colors text-sm uppercase tracking-widest'
+                href='/#testimonios'>Testimonios</a
             >
         </div>
         <a
-            class='bg-tertiary text-white px-8 py-2.5 rounded-full font-button text-sm hover:bg-tertiary hover:text-white transition-all shadow-lg hover:shadow-tertiary/30'
-            href='#form'>
+            class='bg-tertiary text-white px-8 py-2.5 rounded-full font-button text-sm hover:bg-tertiary/90 transition-all shadow-lg hover:shadow-tertiary/30'
+            href='/#form'>
             Reservar Cupo
         </a>
     </div>

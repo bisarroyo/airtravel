@@ -161,6 +161,84 @@ import Form from '../components/Form.astro'
             * {
                 scroll-behavior: smooth;
             }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes fadeInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-40px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            @keyframes fadeInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(40px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes kenburns {
+                from {
+                    transform: scale(1);
+                }
+                to {
+                    transform: scale(1.1);
+                }
+            }
+
+            .animate-on-scroll {
+                opacity: 0;
+            }
+            .animate-on-scroll.animate-fadeInUp {
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+            .animate-on-scroll.animate-fadeInLeft {
+                animation: fadeInLeft 0.8s ease-out forwards;
+            }
+            .animate-on-scroll.animate-fadeInRight {
+                animation: fadeInRight 0.8s ease-out forwards;
+            }
+            .animate-on-scroll.animate-scaleIn {
+                animation: scaleIn 0.8s ease-out forwards;
+            }
+            .animate-on-scroll.animate-slideDown {
+                animation: slideDown 0.6s ease-out forwards;
+            }
         </style>
     </head>
     <body
@@ -177,20 +255,23 @@ import Form from '../components/Form.astro'
         if (!nav) return
         const container = nav.firstElementChild
         if (!container) return
-        if (window.scrollY > 50) {
+
+        const isScrolled = window.scrollY > 50
+
+        if (isScrolled) {
             nav.classList.add('py-2')
             container.classList.add(
-                'bg-white/80',
+                'bg-white/90',
                 'backdrop-blur-2xl',
                 'border-black/5',
                 'shadow-2xl'
             )
             container.classList.remove('bg-white/10', 'border-white/20')
-            container.querySelectorAll('a').forEach((a) => {
+            container.querySelectorAll('.nav-link').forEach((a) => {
                 a.classList.remove('text-white')
                 a.classList.add('text-secondary')
             })
-            const brand = container.querySelector('.font-black')
+            const brand = document.getElementById('nav-brand')
             if (brand) {
                 brand.classList.remove('text-white')
                 brand.classList.add('text-secondary')
@@ -198,17 +279,17 @@ import Form from '../components/Form.astro'
         } else {
             nav.classList.remove('py-2')
             container.classList.remove(
-                'bg-white/80',
+                'bg-white/90',
                 'backdrop-blur-2xl',
                 'border-black/5',
                 'shadow-2xl'
             )
             container.classList.add('bg-white/10', 'border-white/20')
-            container.querySelectorAll('a').forEach((a) => {
+            container.querySelectorAll('.nav-link').forEach((a) => {
                 a.classList.add('text-white')
                 a.classList.remove('text-secondary')
             })
-            const brand = container.querySelector('.font-black')
+            const brand = document.getElementById('nav-brand')
             if (brand) {
                 brand.classList.add('text-white')
                 brand.classList.remove('text-secondary')
@@ -217,18 +298,17 @@ import Form from '../components/Form.astro'
     })
 
     document.addEventListener('DOMContentLoaded', () => {
+        const heroSection = document.querySelector('section:first-of-type')
+        const isLegalPage = heroSection && heroSection.querySelector('h1') && !heroSection.querySelector('.blob') && !heroSection.querySelector('img')
+
+        if (isLegalPage) return
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add(
-                            'opacity-100',
-                            'translate-y-0'
-                        )
-                        entry.target.classList.remove(
-                            'opacity-0',
-                            'translate-y-10'
-                        )
+                        entry.target.classList.add('animate-on-scroll', 'animate-fadeInUp')
+                        observer.unobserve(entry.target)
                     }
                 })
             },
@@ -236,14 +316,8 @@ import Form from '../components/Form.astro'
         )
 
         document
-            .querySelectorAll('section > div:first-child, .group')
+            .querySelectorAll('section > div:first-child, .group, .bg-white, .bg-white\\/10')
             .forEach((el) => {
-                el.classList.add(
-                    'transition-all',
-                    'duration-1000',
-                    'opacity-0',
-                    'translate-y-10'
-                )
                 observer.observe(el)
             })
     })
